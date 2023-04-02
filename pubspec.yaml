@@ -67,6 +67,8 @@ flutter:
     - assets/images/environ.png
     - assets/images/g.png
     - assets/images/on.png
+    - assets/soillabels.txt
+    - assets/soil.tflite
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -1,9 +1,6 @@
-import 'dart:io';
-
+import 'package:agropedia/screens/IMA.dart';
+import 'package:agropedia/screens/Soil.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:tflite/tflite.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,134 +11,162 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
-  void initState(){
-    super.initState();
-    _initTensorFlow();
-  }
-
-  File? image;
-  late List _results;
-  bool imageSelect=false;
-
-
-  Future<void> _initTensorFlow() async{
-    Tflite.close();
-    String? res = await Tflite.loadModel(
-        model: "assets/model_unquant.tflite",
-        labels: "assets/labels.txt",
-        numThreads: 1, // defaults to 1
-        isAsset: true, // defaults to true, set to false to load resources outside assets
-        useGpuDelegate: false // defaults to false, set to true to use GPU delegate
-    );
-  }
-
-  Future<void> imageClassification (File image)async
-  {
-    var recognitions = await Tflite.runModelOnImage(
-      path: image.path,
-      numResults: 6,
-      threshold: 0.05,
-      imageMean: 127.5,
-      imageStd: 127.5,
-    );
-    setState(() {
-      _results=recognitions!;
-      image=image;
-      imageSelect=true;
-    });
-  }
-
-  Future pickImage() async {
-    try {
-      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-      if(image == null) return;
-      final imageTemp = File(image.path);
-      setState(() => this.image = imageTemp);
-    } on PlatformException catch(e) {
-      print('Failed to pick image: $e');
-    }
-    imageClassification(image!);
-  }
-
-  Future camera() async {
-    try {
-      final image = await ImagePicker().pickImage(source: ImageSource.camera);
-      if(image == null) return;
-      final imageTemp = File(image.path);
-      setState(() => this.image = imageTemp);
-    } on PlatformException catch(e) {
-      print('Failed to pick image: $e');
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.white,
     appBar: AppBar(
+      backgroundColor: Colors.white,
       elevation: 0,
       title: const Text('AgroPedia'),
-      actions: <Widget>[
-        IconButton(
-          icon: const Icon(Icons.menu_rounded),
-          tooltip: 'Show Snackbar',
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('This is a snackbar')));
-          },
-        ),
-
-      ],
     ),
         body: ListView(
             children: [
-            (imageSelect)?Container(margin: EdgeInsets.all(10),
-          child: Image.file(image!),):Container(
-          margin: EdgeInsets.all(10),child: Center(child: Text("No image selected"),),
-            ),
-              SingleChildScrollView(
-                child: Column(
-                  children:
-                    (imageSelect)?_results.map((results){
-                        return Card(
-                          child: Container(
-                            margin: EdgeInsets.all(10),
-                            child: Text(
-                              "${results["label"]}",
+               Padding(
+                 padding: const EdgeInsets.all(10),
+                 child: Card(
+              elevation: 5,
+              shadowColor: Colors.green,
+              color: Colors.white,
+              child: SizedBox(
+                  width: 300,
+                  height: 360,
+                  child: Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.green,
+                          radius: 84,
+                          child: const CircleAvatar(
+                            backgroundImage: NetworkImage(
+                              "https://media.istockphoto.com/id/1251268250/photo/green-leaves-with-dew-drops.jpg?s=2048x2048&w=is&k=20&c=TjZUHZ4gWAQgkl8iYGtaI6UwVjBtDOZO0DitQPn7nEc="), //NetworkImage
+                            radius: 80,
+                          ), //CircleAvatar
+                        ), //CircleAvatar
+                        const SizedBox(
+                          height: 10,
+                        ), //SizedBox
+                        const Text(
+                          'Crop',
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.green,
+                            fontWeight: FontWeight.w500,
+                          ), //Textstyle
+                        ), //Text
+                        const SizedBox(
+                          height: 10,
+                        ), //SizedBox
+                        const Text(
+                          'Identify crop disease',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.green,
+                          ), //Textstyle
+                        ), //Text
+                        const SizedBox(
+                          height: 10,
+                        ), //SizedBox
+                        SizedBox(
+                          width: 100,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(context,MaterialPageRoute(builder: (context) =>const IM()));
+                            },
+                            style: ButtonStyle(
+                                backgroundColor:
+                                MaterialStateProperty.all(Colors.green)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(4),
+                              child: Row(
+                                children: const [
+                                  Icon(Icons.search,color: Colors.white,),
+                                  Text('Scan',style: TextStyle(color: Colors.white),)
+                                ],
+                              ),
                             ),
                           ),
-                        );
-                    }).toList():[],
+                        )
+                      ],
+                    ), //Column
+                  ), //Padding
+              ), //SizedBox
+            ),
+               ),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Card(
+                  elevation: 5,
+                  shadowColor: Colors.brown,
+                  color: Colors.white,
+                  child: SizedBox(
+                    width: 300,
+                    height: 360,
+                    child: Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.brown,
+                            radius: 84,
+                            child: const CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                  "https://images.unsplash.com/photo-1618212624319-3cd9681707e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"), //NetworkImage
+                              radius: 80,
+                            ), //CircleAvatar
+                          ), //CircleAvatar
+                          const SizedBox(
+                            height: 10,
+                          ), //SizedBox
+                          const Text(
+                            'Crop',
+                            style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.brown,
+                              fontWeight: FontWeight.w500,
+                            ), //Textstyle
+                          ), //Text
+                          const SizedBox(
+                            height: 10,
+                          ), //SizedBox
+                          const Text(
+                            'Identify Soil type',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.brown,
+                            ), //Textstyle
+                          ), //Text
+                          const SizedBox(
+                            height: 10,
+                          ), //SizedBox
+                          SizedBox(
+                            width: 100,
+                            child: ElevatedButton(
+                              onPressed: () {
+                               Navigator.push(context,MaterialPageRoute(builder: (context) =>const Soils()));
+                              },
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                  MaterialStateProperty.all(Colors.brown)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(4),
+                                child: Row(
+                                  children: const [
+                                    Icon(Icons.search,color: Colors.white,),
+                                    Text('Scan',style: TextStyle(color: Colors.white),)
+                                  ],
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ), //Column
+                    ), //Padding
+                  ), //SizedBox
                 ),
-              ),
-              MaterialButton(
-                  color: Colors.blueGrey,
-                  child: const Text(
-                      "Pick Image from Gallery",
-                      style: TextStyle(
-                          color: Colors.white70, fontWeight: FontWeight.bold
-                      )
-                  ),
-                  onPressed: () {
-                    pickImage();
-                  }
-              ),
-              MaterialButton(
-                  color: Colors.blueGrey,
-                  child: const Text(
-                      "Pick Image from Camera",
-                      style: TextStyle(
-                          color: Colors.white70, fontWeight: FontWeight.bold
-                      )
-                  ),
-                  onPressed: () {
-                    camera();
-                  }
-              ),
-              SizedBox(
-                height: 20,
-              ),
-            ],
+
+              ), //Card//Card
+            ]
           ),
         );
   }

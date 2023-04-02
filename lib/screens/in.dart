@@ -28,11 +28,11 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: MyApp.title,
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.grey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         body: currentIndex [_currentIndex ],
         bottomNavigationBar: SalomonBottomBar(
           currentIndex: _currentIndex,
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
                 icon: Icon(Icons.home),
                 title: Text("Home"),
                 selectedColor: Colors.purple,
-                unselectedColor: Colors.white
+                unselectedColor: Colors.black
             ),
 
             /// Likes
@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
                 icon: Icon(Icons.group),
                 title: Text("Community"),
                 selectedColor: Colors.pink,
-                unselectedColor: Colors.white
+                unselectedColor: Colors.black
             ),
 
             /// Search
@@ -60,7 +60,7 @@ class _MyAppState extends State<MyApp> {
                 icon: Icon(Icons.tips_and_updates),
                 title: Text("Guide"),
                 selectedColor: Colors.orange,
-                unselectedColor: Colors.white
+                unselectedColor: Colors.black
             ),
 
             /// Profile
@@ -68,8 +68,9 @@ class _MyAppState extends State<MyApp> {
                 icon: Icon(Icons.person),
                 title: Text("Profile"),
                 selectedColor: Colors.teal,
-                unselectedColor: Colors.white
+                unselectedColor: Colors.black
             ),
+
           ],
         ),
       ),

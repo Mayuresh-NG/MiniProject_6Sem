@@ -17,7 +17,9 @@ class Community extends StatelessWidget {
                 const SnackBar(content: Text('This is a snackbar')));
           },
         ),
+
       ],
     );
+
   }
 }

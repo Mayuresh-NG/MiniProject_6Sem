@@ -1,8 +1,8 @@
-0 Tomato mosiac virus
-1 Tomato yellow leaf curl virus
-2  Tomato target spot
-3 Tomato late blight
-4 Tomato Early blight
-5 Tomato bacterial spot
-6 Potato late blight
-7 Potato early blight
+Tomato mosiac virus
+Tomato yellow leaf curl virus
+Tomato target spot
+Tomato late blight
+Tomato Early blight
+Tomato bacterial spot
+Potato late blight
+Potato early blight
