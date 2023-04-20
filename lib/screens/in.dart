@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         body: currentIndex [_currentIndex ],
         bottomNavigationBar: SalomonBottomBar(
           currentIndex: _currentIndex,
@@ -42,8 +42,8 @@ class _MyAppState extends State<MyApp> {
             SalomonBottomBarItem(
                 icon: Icon(Icons.home),
                 title: Text("Home"),
-                selectedColor: Colors.purple,
-                unselectedColor: Colors.black
+                selectedColor: Colors.green,
+                unselectedColor: Colors.white
             ),
 
             /// Likes
@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
                 icon: Icon(Icons.group),
                 title: Text("Community"),
                 selectedColor: Colors.pink,
-                unselectedColor: Colors.black
+                unselectedColor: Colors.white
             ),
 
             /// Search
@@ -59,8 +59,8 @@ class _MyAppState extends State<MyApp> {
 
                 icon: Icon(Icons.tips_and_updates),
                 title: Text("Guide"),
-                selectedColor: Colors.orange,
-                unselectedColor: Colors.black
+                selectedColor: Colors.red,
+                unselectedColor: Colors.white
             ),
 
             /// Profile
@@ -68,7 +68,7 @@ class _MyAppState extends State<MyApp> {
                 icon: Icon(Icons.person),
                 title: Text("Profile"),
                 selectedColor: Colors.teal,
-                unselectedColor: Colors.black
+                unselectedColor: Colors.white
             ),
 
           ],

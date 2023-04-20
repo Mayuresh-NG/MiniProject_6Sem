@@ -13,20 +13,20 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
     appBar: AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       elevation: 0,
-      title: const Text('AgroPedia'),
+      title: const Text('AgroPedia',style: TextStyle(color: Colors.white),),
     ),
         body: ListView(
             children: [
                Padding(
-                 padding: const EdgeInsets.all(10),
+                 padding: const EdgeInsets.all(20),
                  child: Card(
               elevation: 5,
               shadowColor: Colors.green,
-              color: Colors.white,
+              color: Colors.black54,
               child: SizedBox(
                   width: 300,
                   height: 360,
@@ -34,10 +34,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.all(30.0),
                     child: Column(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           backgroundColor: Colors.green,
                           radius: 84,
-                          child: const CircleAvatar(
+                          child: CircleAvatar(
                             backgroundImage: NetworkImage(
                               "https://media.istockphoto.com/id/1251268250/photo/green-leaves-with-dew-drops.jpg?s=2048x2048&w=is&k=20&c=TjZUHZ4gWAQgkl8iYGtaI6UwVjBtDOZO0DitQPn7nEc="), //NetworkImage
                             radius: 80,
@@ -94,11 +94,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
                ),
               Padding(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.only(left: 20,right: 20),
                 child: Card(
                   elevation: 5,
                   shadowColor: Colors.brown,
-                  color: Colors.white,
+                  color: Colors.black54,
                   child: SizedBox(
                     width: 300,
                     height: 360,
@@ -106,10 +106,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.all(30.0),
                       child: Column(
                         children: [
-                          CircleAvatar(
+                          const CircleAvatar(
                             backgroundColor: Colors.brown,
                             radius: 84,
-                            child: const CircleAvatar(
+                            child: CircleAvatar(
                               backgroundImage: NetworkImage(
                                   "https://images.unsplash.com/photo-1618212624319-3cd9681707e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"), //NetworkImage
                               radius: 80,
@@ -119,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 10,
                           ), //SizedBox
                           const Text(
-                            'Crop',
+                            'Soil',
                             style: TextStyle(
                               fontSize: 30,
                               color: Colors.brown,

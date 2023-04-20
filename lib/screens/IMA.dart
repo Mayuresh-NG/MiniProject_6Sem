@@ -1,5 +1,7 @@
+import 'dart:ffi';
 import 'dart:io';
 
+import 'package:agropedia/screens/Guide.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -77,11 +79,10 @@ class _IMState extends State<IM> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: const Text('AgroPedia'),
+        elevation: 10,
+        title: const Text('AgroPedia',style: TextStyle(color: Colors.white),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -92,18 +93,27 @@ class _IMState extends State<IM> {
               margin: const EdgeInsets.all(10),child: const Center(child: Text("No image selected"),),
             ),
             SingleChildScrollView(
-              child: Column(
-                children:
-                (imageSelect)?_results.map((results){
-                  return Card(
-                    child: Container(
-                      margin: const EdgeInsets.all(10),
-                      child: Text(
-                        "${results['label']} - ${(results["confidence"]*100).toStringAsFixed(2)}",
-                      ),
-                    ),
-                  );
-                }).toList():[],
+                  child: Column(
+                    children:
+                    (imageSelect)?_results.map((results){
+                      return ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(context,MaterialPageRoute(builder: (context) =>const Guide()));
+                        },
+                        style: ButtonStyle(
+                            backgroundColor:
+                            MaterialStateProperty.all(Colors.white),
+                        ),
+                        child: Container(
+                          margin: const EdgeInsets.all(10),
+                          child: SizedBox(
+                            child: Text(
+                              "${results['label']} - ${(results["confidence"]*100).toStringAsFixed(2)}",
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList():[],
               ),
             ),
             SizedBox(
@@ -155,3 +165,4 @@ class _IMState extends State<IM> {
     );
   }
 }
+
