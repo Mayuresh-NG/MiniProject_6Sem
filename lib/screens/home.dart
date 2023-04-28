@@ -1,4 +1,4 @@
-import 'package:agropedia/screens/IMA.dart';
+import 'package:agropedia/screens/disease.dart';
 import 'package:agropedia/screens/Soil.dart';
 import 'package:flutter/material.dart';
 

@@ -118,7 +118,7 @@ class Guide extends StatelessWidget {
                           textStyle: const TextStyle(fontSize: 20,fontWeight: FontWeight.w400,),
                         ),
                         onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) =>const TYLCV()));},
-                        child: const Text('Tomato yellow leaf curl virus'),
+                        child: const Text('Tomato yellow curl virus'),
                       ), //Text
                     ],
                   ), //Column

@@ -1,9 +1,7 @@
 import 'package:agropedia/login/Signup.dart';
 import 'package:agropedia/login/loginScreen.dart';
 import 'package:agropedia/login/onboarding.dart';
-import 'package:agropedia/screens/IMA.dart';
-import 'package:agropedia/screens/Soil.dart';
-import 'package:agropedia/screens/in.dart';
+import 'package:agropedia/screens/Drawer.dart';
 import 'package:flutter/material.dart';
 
 void main() {

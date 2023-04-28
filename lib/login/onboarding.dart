@@ -37,38 +37,42 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         ),),
       Container(
         color: Colors.white,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset("assets/images/search.png"),
-            Image.asset("assets/images/community.png"),
-            Column(
-              children: const [
-                Text("Identify Crop Disease and share on Community",textAlign:TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold
-                    ,fontSize: 25,color: Color.fromRGBO(63,61,86,0.9)),),
-                SizedBox(height: 50,)
-              ],
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset("assets/images/search.png"),
+              Image.asset("assets/images/community.png"),
+              Column(
+                children: const [
+                  Text("Identify Crop Disease and share on Community",textAlign:TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold
+                      ,fontSize: 25,color: Color.fromRGBO(63,61,86,0.9)),),
+                  SizedBox(height: 50,)
+                ],
+              )
+            ],
+          ),
         ),),
       Container(
         color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image.asset("assets/images/tips.png"),
-            Column(
-              children: const [
-                Text("Crop Practice",style: TextStyle(fontWeight: FontWeight.bold
-                    ,fontSize: 35,color: Color.fromRGBO(87,184,148,0.9)),),
-                Text("Get best crop practice for your crop and Keep your crop healthy",textAlign:TextAlign.center,style: TextStyle(
-                    fontSize: 22,color: Color.fromRGBO(63,61,86,0.9)),),
-                SizedBox(height: 50,)
-              ],
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.asset("assets/images/tips.png"),
+              Column(
+                children: const [
+                  Text("Crop Practice",style: TextStyle(fontWeight: FontWeight.bold
+                      ,fontSize: 35,color: Color.fromRGBO(87,184,148,0.9)),),
+                  Text("Get best crop practice for your crop and Keep your crop healthy",textAlign:TextAlign.center,style: TextStyle(
+                      fontSize: 22,color: Color.fromRGBO(63,61,86,0.9)),),
+                  SizedBox(height: 50,)
+                ],
+              )
+            ],
+          ),
         ),),
-      Welcome(),
+      const Welcome(),
     ];
     return Scaffold(
       body: Stack(

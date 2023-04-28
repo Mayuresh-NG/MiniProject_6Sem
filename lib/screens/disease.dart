@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'dart:io';
 
 import 'package:agropedia/screens/Guide.dart';
@@ -25,7 +24,7 @@ class _IMState extends State<IM> {
   late List _results;
   bool imageSelect=false;
 
-
+//initialize Tensor flow model of crop disease detection
   Future<void> _initTensorFlow() async{
     Tflite.close();
     String? res = await Tflite.loadModel(
@@ -37,6 +36,7 @@ class _IMState extends State<IM> {
     );
   }
 
+  //Load
   Future<void> imageClassification (File image)async
   {
     var recognitions = await Tflite.runModelOnImage(
